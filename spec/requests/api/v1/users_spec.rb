@@ -38,7 +38,7 @@ RSpec.describe 'Users Api', type: :request do
 
   describe 'POST /users' do
     before do
-      post '/users', params: { user: user_params}.to_json, headers: headers
+      post '/users', params: { user: user_params }.to_json, headers: headers
     end
 
     context 'when the request params are valid' do

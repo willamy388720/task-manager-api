@@ -33,7 +33,7 @@ RSpec.describe 'Users Api', type: :request do
 
     context 'when the request headers are not valid' do
       before do
-        header['access-token'] = 'invalid_token'
+        headers['access-token'] = 'invalid_token'
         get "/auth/validate_token", params: {}, headers: headers
       end
 

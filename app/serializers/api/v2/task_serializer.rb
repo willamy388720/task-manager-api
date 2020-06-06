@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class Api::V2::TaskSerializer < ActiveModel::Serializer
   attributes :id, :title, :description, :done, :deadline, :user_id, :created_at, :updated_at,
-              :short_description, :is_late, :deadline_to_br
+             :short_description, :is_late, :deadline_to_br
 
   def short_description
     object.description[0..40] if object.description.present?
   end
 
   def deadline_to_br
-    i18n.l(object.deadline, format: :deadline_to_br) if object.deadline.present?
+    I18n.l(object.deadline, format: :datetime) if object.deadline.present?
   end
 
   def is_late
